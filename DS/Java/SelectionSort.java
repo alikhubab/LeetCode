@@ -34,13 +34,9 @@ public class SelectionSort {
         }
         return numbers;
     }
-
-
     private void swap(int[] numbers, int index1, int index2) {
         var saved = numbers[index1];
         numbers[index1] = numbers[index2];
         numbers[index2] = saved;
     }
-
-
 }
