@@ -70,5 +70,5 @@ if __name__ == '__main__':
 
 
 # Success:
-# 	Runtime:38 ms, faster than 23.83% of Python online submissions.
-# 	Memory Usage:11.8 MB, less than 50.64% of Python online submissions.
+# 	Runtime:24 ms, faster than 85.43% of Python online submissions.
+# 	Memory Usage:11.8 MB, less than 23.34% of Python online submissio
