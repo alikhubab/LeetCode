@@ -1,6 +1,5 @@
 from typing import List
 
-
 class Solution:
     def region_by_slashes(self, grid: List[str]) -> int:
         grid_size = len(grid)
@@ -67,3 +66,6 @@ class Solution:
         return parent_array[x]
 
 
+sol = Solution()
+regions = sol.region_by_slashes([" /","/ "])
+print(regions)
