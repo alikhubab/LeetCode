@@ -1,6 +1,5 @@
 class RegionsBySlashesByDisjointSetTriangles {
     fun regionBySlashes(grid: Array<String>): Int{
-
         val gridSize = grid.size
         val totalTriangles = gridSize * gridSize * 4
 
@@ -46,7 +45,17 @@ class RegionsBySlashesByDisjointSetTriangles {
         }
         return regionCount
     }
-
+//  gridSize = ["  ", "  "]
+//    gridSize = 2
+//    totalTriangles = 2 * 2 * 4
+//    [1,2
+//     3,4
+//    ]
+//    P.A = [-1] * 16(totalTriangles)
+//    0 - 0, 0 - 1, 1-0, 1-1
+//    [" /", "\ "]
+//    regions = 16
+//
 
     private fun getTriangleIndex(gridSize: Int, row: Int, col: Int, triangleNumber: Int) : Int{
         return (gridSize * row + col) * 4 + triangleNumber
