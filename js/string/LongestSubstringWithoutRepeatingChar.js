@@ -48,21 +48,22 @@ const hasRepeatingChar = (str = "abc") => {
 
 
 
-const longestSubStr = (str = "") => {
+// maxLength = 0 , 0, 2, 1, 2, 2
+const longestSubStr = (str = "abccab") => {
     let windowStart = 0;
     let maxLength = 0;
 
-    const seen = new Set();
-    for(let windowEnd = 0; windowStart < str.length; windowEnd++){
+    let seen = new Set()
+    for(let windowEnd = 0; windowEnd < str.length; windowEnd ++){
         const char = str[windowEnd]
 
-        while(seen.has(str[windowEnd])){
-            seen.delete(str[windowStart])
+        while (seen.has(char)){
+            seen.delete(char)
             windowStart++
         }
 
         seen.add(char)
-        maxLength = Math.max(maxLength, windowEnd - windowStart + 1)
+        maxLength = Math.max(maxLength, windowEnd - windowStart )
     }
 }
 
@@ -70,6 +71,7 @@ const longestSubstringWithoutRepeatingCharGPT = (str = "abcabc") => {
     let windowStart = 0;
     let maxLength = 0;
     const seen = new Set();
+    // let maxSubstring = ""; // Store the longest substring
 
     for (let windowEnd = 0; windowEnd < str.length; windowEnd++) {
         const char = str[windowEnd];
@@ -83,12 +85,13 @@ const longestSubstringWithoutRepeatingCharGPT = (str = "abcabc") => {
         // Add the current character to the set and update max length.
         seen.add(char);
         maxLength = Math.max(maxLength, windowEnd - windowStart + 1);
+
     }
 
-    return maxLength;
+    return maxLength
 };
 
-console.log(longestSubstringWithoutRepeatingCharGPT("aaaaafg"));
+console.log(longestSubstringWithoutRepeatingCharGPT("pwwkew"));
 
 
-console.log(longestSubstringWithoutRepeatingChar("aaaaafg"))
+// console.log(longestSubstringWithoutRepeatingChar("aaaaafg"))
