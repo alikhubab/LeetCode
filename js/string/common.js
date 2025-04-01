@@ -350,8 +350,8 @@ const isRotationKmp = (s1, s2) => {
 }
 
 
-console.log(isRotationKmp("bcccdcbaccbb", "dcbaccbbbccc")); // true ccbbbcccdcba dcbaccbbbccc"))
-console.log(isRotationKmp("dcbaccbbbccc", "xcccdcbaccbb" )); // true ccbbbcccdcba dcbaccbbbccc"))
+// console.log(isRotationKmp("bcccdcbaccbb", "dcbaccbbbccc")); // true ccbbbcccdcba dcbaccbbbccc"))
+// console.log(isRotationKmp("dcbaccbbbccc", "xcccdcbaccbb" )); // true ccbbbcccdcba dcbaccbbbccc"))
 // console.log(kmpSearch('cccabcabc', 'abc'))
 // console.log(buildPrefixTable("abcabc"))
 // console.log(buildPrefixTable("dadddd"))
@@ -359,7 +359,24 @@ console.log(isRotationKmp("dcbaccbbbccc", "xcccdcbaccbb" )); // true ccbbbcccdcb
 
 
 const removeNonAlphanumeric = str => str.replace(/[^a-z0-9]/gi, "")
+
+// 7
+const removeNonAlphanumericC = str => {
+    let result = '';
+    for(let i = 0; i < str.length; i++){
+        const code = str.charCodeAt(i);
+        if(
+            code >= 48 && code <= 57 ||
+            code >= 65 && code <= 90 ||
+            code >= 97 && code <= 122
+        ) result+= str[i]
+    }
+    return result
+}
+
+// console.log(removeNonAlphanumericC("Hello, World!123")); // "HelloWorld123"
 const toSnakeCase = str => str.toLowerCase().replace(/\s+/g, "_")
+
 const findSubstrings = s => {
     const subs = [];
     for (let i = 0; i < s.length; i++)
@@ -409,7 +426,32 @@ const longestCommonPrefix = arr => {
             if (!prefix) return ''
         }
     }
-
     return prefix
-
 }
+const longestCommonPrefixC = arr => {
+    if(arr.length === 0) return '';
+    let prefix = arr[0]
+    for(let i = 0; i < arr.length; i++){
+        let j = 0;
+        while(j < prefix.length && j < arr[i].length && prefix[j] === arr[i][j])
+            j++
+
+        prefix = prefix.slice(0, j)
+        if(prefix === '') return ''
+    }
+    return prefix
+}
+
+console.log(longestCommonPrefixC(["flower", "flow", "flight"])); // "fl"
+console.log(longestCommonPrefixC(["dog", "racecar", "car"])); // ""
+
+
+
+
+
+
+
+
+
+
+
